@@ -182,7 +182,7 @@ for i in range(NO_RUNS):
     
     plt.title(f'Train Loss for run {i + 1}/{NO_RUNS}')
     plt.plot(train_losses)
-    plt.savefig(f'../../../results/ATE/SemEval16 - Task 5 - Restaurants/plots/bart_pt_dropout_cnn_bilstm_linear/train_loss_run_{i + 1}.png')
+    plt.savefig(f'../../../results/ATE/SemEval16 - Task 5 - Restaurants/plots/bart_pt_do_cnn_bilstm_linear/train_loss_run_{i + 1}.png')
 
     plt.clf()
 

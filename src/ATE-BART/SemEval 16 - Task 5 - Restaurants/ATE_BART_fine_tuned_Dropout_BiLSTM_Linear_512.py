@@ -184,15 +184,11 @@ for i in range(NO_RUNS):
     
     plt.title(f'Train Loss for run {i + 1}/{NO_RUNS}')
     plt.plot(train_losses)
-    plt.savefig(f'../../../results/ATE/SemEval16 - Task 5 - Restaurants/plots/bart_pt_dropout_linear_train_loss_run_{i + 1}.png')
+    plt.savefig(f'../../../results/ATE/SemEval16 - Task 5 - Restaurants/plots/bart_pt_do_linear_train_loss_run_{i + 1}.png')
 
     plt.clf()
 
     outputs, targets, valid_losses = validation(model, validation_dataloader, torch.nn.CrossEntropyLoss())
-    plt.title(f'Valid Loss for run {i + 1}/{NO_RUNS}')
-    plt.plot(valid_losses)
-    plt.savefig(f'../../../results/ATE/SemEval16 - Task 5 - Restaurants/plots/bart_pt_dropout_linear_valid_loss_run_{i + 1}.png')
-    plt.clf()
     
     accuracy = accuracy_score(targets, outputs)
     precision_score_micro = precision_score(targets, outputs, average='micro')
@@ -208,7 +204,6 @@ for i in range(NO_RUNS):
 
     if accuracy > best_accuracy:
         best_accuracy = accuracy
-        torch.save(model.bart, BART_FINE_TUNED_OUTPUT)
         torch.save(model, MODEL_OUTPUT)
 
     del train_dataset
